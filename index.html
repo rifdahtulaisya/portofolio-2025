@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rifdahtul Aisya</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Lexend:wght@700&display=swap" rel="stylesheet">
+    <!-- Link Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="./asset/img/logo.svg" rel="icon">
+    <style>
+        body {
+            background-color: #FFC0CB; /* Pink pastel */
+            font-family: 'Lexend', sans-serif;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #F8EEEC;
+            padding: 20px 0;
+            font-weight: bold;
+            border-bottom: 5px solid black;
+            margin: 0;
+            
+        }
+        .navbar-nav .nav-link {
+            position: relative;
+        }
+        .navbar-nav .nav-link.active {
+            color: #FF5733;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #000;
+            border-radius: 2px;
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 20px 100px;
+            margin-top: 80px;
+        }
+        .hero h1 {
+            color: #000080;
+            font-size: 4vw;
+            font-family: 'Lexend', sans-serif;
+        }
+        
+        .hero p {
+            font-size: 6vw;
+            font-weight: bold;
+            color: #D81B60;
+            line-height: 1.2;
+            font-family: "Shrikhand", serif;
+        }
+        .decor {
+            position: absolute;
+            width: 10vw;
+            animation: spin 5s linear infinite;
+        }
+        .separator-section {
+            background-color: #c58bf1;
+            padding: 10px 10px;
+            overflow: hidden;
+            border-top: 5px solid #000;
+            border-bottom: 5px solid #000;
+        }
+        .separator-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            animation: scrollText 20s linear infinite;
+        }
+        .separator-content span {
+            color: #000000;
+            font-size: 2rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .separator-content i {
+            color:#F8EEEC;
+        }
+        .top-left {
+            top: 2vw;
+            left: 2vw;
+        }
+        .top-right { 
+            top: 2vw;
+            right: 2vw;
+        }
+        .bottom-left {
+            bottom: 2vw;
+            left: 2vw;
+        }
+        .bottom-right {
+            bottom: 2vw;
+            right: 2vw;
+        }
+        .website-section {
+            background-image: url('./asset/img/website/websitebg.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 5px solid black;
+        }
+        .website-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .website-section h2 {
+            line-height: 1.2;
+            color: #D81B60;
+            font-size: 6vw;
+            font-weight: bold;
+            font-family: "Shrikhand", serif;
+            margin-bottom: 5px; /* Tambahkan jarak dari gambar */
+        }
+        
+        .website-container a img {
+            width: 100%;
+            max-width: 320px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .website-container a img:hover {
+            transform: rotate(-5deg);
+        }
+        .image-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .image-container img {
+            width: 30%;
+            max-width: 320px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .image-container img:hover {
+            transform: rotate(-5deg);
+        }
+        .new-section {
+            background-color: #F8EEEC;
+            background-image: url('./asset/img/about/aboutbg2.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 5px solid black;
+        }
+        .new-section h2 {
+            color: #e85c3b;
+            font-size: 4vw;
+            font-family: 'Inter', sans-serif;
+        }
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .about-image {
+            width: 50%;
+            max-width: 400px;
+            height: auto;
+        }
+        .text-content {
+            width: 45%;
+            text-align: left;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            background-color: #fdf4f0;
+            border-top: 0px solid black;
+            border-bottom: 5px solid black;
+        }
+        .footer-left {
+            width: 50%;
+        }
+        .footer-left h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .footer-left p {
+            font-size: 1rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #ff5c39;
+            color: black;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 5px solid black;
+            text-decoration: none;
+        }
+        .footer-right {
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+            border-left: 5px solid black;
+            padding-left: 20px;
+        }
+        .footer-column h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column ul li a {
+            color: inherit; /* Warna akan mengikuti elemen induknya */
+            text-decoration: none; /* Menghilangkan garis bawah pada link */
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #E95941;
+            padding: 10px 20px;
+            border-bottom: 5px solid black;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-bottom-left {
+            width: 70%;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-right {
+            width: 40%; /* Kurangi dari 50% ke 40% */
+            text-align: left; /* Ubah ke kiri jika perlu */
+            border-left: 5px solid black;
+            padding-left: 150px; /* Kurangi padding agar lebih dekat */
+        }
+
+        .footer-bottom-right p a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none; /* Menghilangkan garis bawah */
+        }
+
+        @keyframes scrollText {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .footer-bottom-left,
+            .footer-bottom-right {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                border-left: none; /* Menghilangkan border kiri di mobile */
+            }
+
+            .footer-bottom-right p {
+                margin-top: 5px;
+            }
+            .separator-content {
+                gap: 20px;
+            }
+            .separator-content span {
+                font-size: 1.5rem;
+            }
+            .navbar-nav .nav-link {
+                position: relative;
+                text-align: center;
+            }
+            .navbar-nav .nav-link.active {
+                color: #FF5733;
+                font-weight: bold;
+            }
+            .navbar-nav .nav-link.active::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background-color: #000;
+                border-radius: 2px;
+            }
+            .hero {
+                padding: 80px 15px 20px;
+            }
+            .hero h1 {
+                font-size: 6vw;
+            }
+            .hero p {
+                font-size: 8vw;
+            }
+            .new-section {
+                padding-top: 10px; /* Kurangi padding atas */
+            }
+            .new-section h2 {
+                font-size: 8vw;
+            }
+            .decor {
+                width: 15vw;
+            }
+            .image-section {
+                padding-top: 0;
+            }
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .image-container img {
+                width: 100%;
+                max-width: 500px;
+            }
+            .website-section {
+                padding-top: 30px; /* Tambahkan padding agar tidak terlalu mepet */
+            }
+            
+            .website-section h2 {
+                font-size: 8vw;
+                margin-top: 20px; /* Tambahkan jarak dari atas */
+                margin-bottom: 0px; /* Pastikan ada jarak bawah juga */
+            }
+            .website-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .website-container a img {
+                width: 100%;
+                max-width: 500px;
+            }
+            .content-wrapper {
+                flex-direction: column;
+            }
+            .about-image, .text-content {
+                width: 100%;
+            }
+            .about-image {
+                margin-bottom: 10px;
+            }
+            .footer {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                gap: 20px; /* Menambah jarak antar elemen */
+            }
+            .footer-left, 
+            .footer-right {
+                width: 100%;
+            }
+            .footer-left {
+                order: 1; /* Pastikan elemen ini tetap di atas */
+            }
+            .footer-right {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border-left: none;
+                padding-left: 0;
+                gap: 20px;
+                order: 2;
+            }
+            .top-left {
+                top: 5vw;
+            }
+            .top-right { 
+                top: 5vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a href="#home" class="navbar-brand">
+                <img src="./asset/img/logo.svg" alt="portofolio Rifdah" style="width: 40px; height: auto; margin-right: 10px;">
+                Rifdahtul Aisya
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#work">WORK</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">ABOUT ME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#website">MY WEBSITE</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <div id="home" class="hero position-relative">
+        <img alt="portofolio Rifdah" src="./asset/img/hero/1.svg" class="decor top-left">
+        <img alt="portofolio Rifdah" src="./asset/img/hero/2.svg" class="decor top-right">
+        <h1>HI THERE, I'M RIFDAH</h1>
+        <p>I'm a back end developer who has a better way to fix the problem.</p>
+        <img alt="portofolio Rifdah" src="./asset/img/hero/4.svg" class="decor bottom-left">
+        <img alt="portofolio Rifdah" src="./asset/img/hero/3.svg" class="decor bottom-right">
+    </div>
+
+    <div id="work" class="image-section">
+        <div class="image-container">
+            <img alt="portofolio Rifdah" src="./asset/img/work/1.svg" onclick="window.location.href='https://www.instagram.com/rnlzrdpixel.art/'">
+            <img alt="portofolio Rifdah" src="./asset/img/work/2.svg" onclick="window.location.href='https://x.com/Rnlzrd'">
+            <img alt="portofolio Rifdah" src="./asset/img/work/3.svg" onclick="window.location.href='https://rnlzrd.medium.com/'">
+        </div>
+    </div>
+
+    <div id="about" class="new-section">
+        <div class="content-wrapper">
+            <img src="./asset/img/about/aboutfoto.svg" alt="portofolio Rifdah" class="about-image">
+            <div class="text-content">
+                <h2>Hey Everyone,</h2>
+                <p>My goal is to achieve something without never giving up. Even though the work is hard, it is not a reason to stop. I also make sure all goals meet expectations.</p>
+                <p><strong>I value diverse opinions, responsibilities and mission-driven work. If this sounds like a good fit, I'd love to chat. Say hello below.</strong></p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="website" class="website-section">
+        <h2>My Website</h2>
+        <div class="website-container">
+            <a href="https://rifdahtulaisya.csgeuno.tech/" target="_blank" rel="noopener noreferrer">
+                <img src="./asset/img/website/1.svg" alt="portofolio Rifdah">
+            </a>
+            <a href="https://portofolio-rifdah-2023.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <img src="./asset/img/website/2.svg" alt="portofolio Rifdah">
+            </a>
+            <a href="https://rollerdraw.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <img src="./asset/img/website/roller.png" alt="portofolio Rifdah">
+            </a>
+            <a href="https://foryousafira.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <img src="./asset/img/website/3.svg" alt="portofolio Rifdah">
+            </a>
+            <a href="https://happy-birthday-milda.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <img src="./asset/img/website/4.svg" alt="portofolio Rifdah">
+            </a>
+            <a href="https://birthday-vega.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <img src="./asset/img/website/5.svg" alt="portofolio Rifdah">
+            </a>
+            <a href="https://linkrifdah.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <img src="./asset/img/website/link.png" alt="portofolio Rifdah">
+            </a>
+            <a href="https://butatijahit.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <img src="./asset/img/website/6.svg" alt="portofolio Rifdah">
+            </a>
+            <a href="https://hanado-coffee.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <img src="./asset/img/website/hanado.png" alt="portofolio Rifdah">
+            </a>
+        </div>
+    </div>
+    
+
+    <div class="separator-section">
+        <div class="separator-content">
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+            <span><i class="bi bi-flower3"></i> HIRE ME</span>
+        </div>
+    </div>
+
+    <footer  class="footer">
+        <div class="footer-left">
+            <h2>Want to work together?</h2>
+            <p>You already reached the footer.</p>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rifdah.a122@gmail.com" class="cta-button">Let's Talk</a>
+        </div>
+        <div class="footer-right">
+            <div class="footer-column">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#website">My Website</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Reach Me Here</h3>
+                <ul>
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=rifdah.a122@gmail.com">Email</a></li>
+                    <li><a href="https://www.linkedin.com/in/rifdahtul-aisya-8a29b52b3/">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div> 
+    </footer>
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="footer-bottom-left">
+            <p>Copyright 2025 Rifdahtul Aisya. Only up to here. Do you expect more? It's okay, me too.</p>
+        </div>
+        <div class="footer-bottom-right">
+            <p>Site by <a href="https://www.youtube.com/@rifdahtulaisya">Rifdahtul Aisya</a></p>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("scroll", function() {
+            let scrollPos = window.scrollY;
+            document.querySelectorAll(".navbar-nav .nav-link").forEach(link => {
+                let href = link.getAttribute("href");
+                if (href && href.startsWith("#") && href.length > 1) {
+                    let section = document.querySelector(href);
+                    if (section) {
+                        let top = section.offsetTop - 120;
+                        let bottom = top + section.offsetHeight;
+                        if (scrollPos >= top && scrollPos < bottom) {
+                            document.querySelectorAll(".navbar-nav .nav-link").forEach(l => l.classList.remove("active"));
+                            link.classList.add("active");
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
